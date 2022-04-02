@@ -47,7 +47,7 @@ export class CheckCodeService {
 
           // Verify if has alt value
           if(imgs){
-            imgs.forEach((img: { getAttribute: (arg0: string) => any; }) => { console.log( img );
+            imgs.forEach((img: { getAttribute: (arg0: string) => any; }) => {
                 if(img){
                   var altValue = img?.getAttribute('alt'),
                       srcValue = img?.getAttribute('src'),
@@ -64,7 +64,7 @@ export class CheckCodeService {
 
           // Verify if has alt duplicated
           if(imgsAlt){
-            imgsAlt.forEach(img => { console.log( img );
+            imgsAlt.forEach(img => {
               let altattr = img?.match(/alt=/gm), count = 0;
               if(altattr && altattr.length > 1){ count++; }
               if(count>0){ this.addItem({ text: `There are images with (alt) attribute duplicated` }); }
