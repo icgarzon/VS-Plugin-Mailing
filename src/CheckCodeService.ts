@@ -1,6 +1,7 @@
 import { window } from "vscode";
-import jsdom = require("jsdom");
+const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+
 
 export class CheckCodeService {
 
@@ -42,14 +43,14 @@ export class CheckCodeService {
       try {
 
         if(this.codeHtml){
-
+          
           const doc = new JSDOM(this.codeHtml)?.window?.document,
                 imgs = doc?.querySelectorAll('img'),
                 imgsAlt = this.codeHtml?.match(/<img [^>]*src="[^"]*"[^>]*>/gm);
 
           // Verify if has alt value
           if(imgs){
-            imgs.forEach(img => { console.log( img );
+            imgs.forEach((img: { getAttribute: (arg0: string) => any; }) => { console.log( img );
                 if(img){
                   var altValue = img?.getAttribute('alt'),
                       srcValue = img?.getAttribute('src'),
@@ -101,7 +102,7 @@ export class CheckCodeService {
 
           var textAlignCount=0, marginCount=0;
 
-          common.forEach(code => {
+          common.forEach((code: { getAttribute: (arg0: string) => any; }) => {
 
             if(code){
 
@@ -159,7 +160,7 @@ export class CheckCodeService {
         // Verify if has basic properties
         if(tables){
           let count = 0;
-          tables.forEach(table => {
+          tables.forEach((table: { getAttribute: (arg0: string) => any; }) => {
               let border = table.getAttribute('border'), cellpadding = table.getAttribute('cellpadding'), cellspacing = table.getAttribute('cellspacing');
               if(!border || !cellpadding || !cellspacing){ count++; }
           });
@@ -190,7 +191,7 @@ export class CheckCodeService {
 
         // Verify href empty
         if(links){
-          links.forEach(link => {
+          links.forEach((link: { getAttribute: (arg0: string) => any; }) => {
               let hrefValue = link.getAttribute('href');
               if(!hrefValue){ this.addItem({ text:`It has links (<a>) with (href) value empty` }); }
           });
@@ -247,7 +248,7 @@ export class CheckCodeService {
               rows = doc.querySelectorAll('tr');
 
         if(rows){
-          rows.forEach(row => {
+          rows.forEach((row: { getAttribute: (arg0: string) => any; }) => {
               let styleValue = row.getAttribute('style');
               if(styleValue){ this.addItem({ text:`It has properties (<tr>) with (style), review CRM Developer Best Practices.` }); }
           });
