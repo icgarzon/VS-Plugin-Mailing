@@ -1,9 +1,9 @@
 {
 	"name": "amazonmailing",
-	"displayName": "Liquid/Handlebars Preview",
+	"displayName": "Ring CRM",
 	"description": "Preview Liquid/Handlebars files in VS Code with custom data",
 	"publisher": "ICGarzon",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
