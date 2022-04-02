@@ -20,10 +20,7 @@ const extensionConfig = {
     libraryTarget: 'commonjs2'
   },
   externals: {
-    vscode: 'commonjs vscode',
-    bufferutil: "bufferutil",
-    canvas: "canvas",
-    "utf-8-validate": "utf-8-validate"
+    vscode: 'commonjs vscode'
   },
   resolve: {
     // support reading TypeScript and JavaScript files, 📖 -> https://github.com/TypeStrong/ts-loader
