@@ -3,7 +3,7 @@
 	"displayName": "Ring CRM",
 	"description": "Liquid/Handlebars tools in VS Code with custom data",
 	"publisher": "ICGarzon",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
