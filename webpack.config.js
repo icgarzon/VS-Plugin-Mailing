@@ -36,6 +36,14 @@ const extensionConfig = {
             loader: 'ts-loader'
           }
         ]
+      },
+      {
+        test: /\.node$/,
+        use: [
+          {
+            loader: "node-loader"
+          },
+        ],
       }
     ]
   },

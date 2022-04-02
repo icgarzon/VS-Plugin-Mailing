@@ -1,7 +1,6 @@
 import { window } from "vscode";
-//const jsdom = require("jsdom");
-//const { JSDOM } = jsdom;
-
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 export class CheckCodeService {
 
@@ -13,7 +12,7 @@ export class CheckCodeService {
     this.codeHtml = params?.html;
   }
 
-  /*public async checkSintaxys(): Promise<void>{
+  public async checkSyntax(): Promise<void>{
 
     this.verifyImg()
     .then(()=>{ this.verifyIds(); })
@@ -286,6 +285,6 @@ export class CheckCodeService {
 
     });
 
-  }*/
+  }
 
 };
