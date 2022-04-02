@@ -33,7 +33,7 @@ export function activate(context: ExtensionContext) {
 		if(!text){ window.showWarningMessage('Empty document'); return; }
 
 		const checkcodeService = new CheckCodeService({ html:text });
-		checkcodeService.checkSintaxys();
+		//checkcodeService.checkSintaxys();
 
 	});
 
