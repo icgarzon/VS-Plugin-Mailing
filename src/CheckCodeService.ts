@@ -1,7 +1,5 @@
 import { window } from "vscode";
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-
+import { parse } from 'node-html-parser';
 export class CheckCodeService {
 
   private countErrors: number;
@@ -43,7 +41,7 @@ export class CheckCodeService {
 
         if(this.codeHtml){
           
-          const doc = new JSDOM(this.codeHtml)?.window?.document,
+          const doc = parse(this.codeHtml),
                 imgs = doc?.querySelectorAll('img'),
                 imgsAlt = this.codeHtml?.match(/<img [^>]*src="[^"]*"[^>]*>/gm);
 
@@ -94,7 +92,7 @@ export class CheckCodeService {
       try {
 
         const str = this.codeHtml,
-              doc = new JSDOM(this.codeHtml)?.window?.document,
+              doc = parse(this.codeHtml),
               common = doc.querySelectorAll('table,tr,td,img,div,li,ul,a');
 
         if(common){
@@ -153,7 +151,7 @@ export class CheckCodeService {
       try {
 
         const str = this.codeHtml,
-              doc = new JSDOM(this.codeHtml)?.window?.document,
+              doc = parse(this.codeHtml),
               tables = doc.querySelectorAll('table');
 
         // Verify if has basic properties
@@ -185,7 +183,7 @@ export class CheckCodeService {
       try {
 
         const str = this.codeHtml,
-              doc = new JSDOM(this.codeHtml)?.window?.document,
+              doc = parse(this.codeHtml),
               links = doc.querySelectorAll('a');
 
         // Verify href empty
@@ -243,7 +241,7 @@ export class CheckCodeService {
       try {
 
         const str = this.codeHtml,
-              doc = new JSDOM(this.codeHtml)?.window?.document,
+              doc = parse(this.codeHtml),
               rows = doc.querySelectorAll('tr');
 
         if(rows){
@@ -270,7 +268,7 @@ export class CheckCodeService {
       try {
 
         const str = this.codeHtml,
-              doc = new JSDOM(this.codeHtml)?.window?.document,
+              doc = parse(this.codeHtml),
               headers = doc.querySelectorAll('h1,h2,h3,h4,h5,h6');
 
         if(headers?.length > 0){

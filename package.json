@@ -3,7 +3,7 @@
 	"displayName": "Ring CRM",
 	"description": "Preview Liquid/Handlebars files in VS Code with custom data",
 	"publisher": "ICGarzon",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
@@ -89,9 +89,6 @@
 		"webpack-cli": "^4.9.2"
 	},
 	"dependencies": {
-		"bufferutil": "^4.0.6",
-		"canvas": "^2.9.1",
-		"jsdom": "^19.0.0",
-		"utf-8-validate": "^5.0.9"
+		"node-html-parser": "^5.3.3"
 	}
 }
