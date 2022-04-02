@@ -1,0 +1,89 @@
+{
+	"name": "amazonmailing",
+	"displayName": "Liquid/Handlebars Preview",
+	"description": "Preview Liquid/Handlebars files in VS Code with custom data",
+	"publisher": "ICGarzon",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.66.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "media/preview-hbs.png",
+	"activationEvents": [
+		"onCommand:amazonmailing.previewTemplate",
+		"onCommand:amazonmailing.verifyTemplate"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "amazonmailing.previewTemplate",
+				"title": "Ring: Preview Template"
+			},
+			{
+				"command": "amazonmailing.verifyTemplate",
+				"title": "Ring: Verify Template"
+			}
+		],
+		"viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "amazonmailing",
+                    "title": "Code",
+                    "icon": "media/extension-icon.svg"
+                }
+            ]
+        },
+        "views": {
+            "amazonmailing": [
+                {
+                    "id": "amazonmailing.codereviewOptions",
+                    "name": "Options"
+                },
+				{
+                    "id": "amazonmailing.codereviewResults",
+                    "name": "Results"
+                }
+            ]
+        },
+		"viewsWelcome": [
+			{
+			  "view": "amazonmailing.codereviewOptions",
+			  "contents": "You can start to check the templates on this options.\n[Preview](command:amazonmailing.previewTemplate)\n[Verify](command:amazonmailing.verifyTemplate)\n"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.66.0",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.0",
+		"@types/node": "14.x",
+		"@typescript-eslint/eslint-plugin": "^5.16.0",
+		"@typescript-eslint/parser": "^5.16.0",
+		"eslint": "^8.11.0",
+		"glob": "^7.2.0",
+		"mocha": "^9.2.2",
+		"typescript": "^4.5.5",
+		"ts-loader": "^9.2.8",
+		"webpack": "^5.70.0",
+		"webpack-cli": "^4.9.2",
+		"@vscode/test-electron": "^2.1.3"
+	},
+	"dependencies": {
+		"@types/jsdom": "^16.2.14",
+		"jsdom": "^19.0.0"
+	}
+}
